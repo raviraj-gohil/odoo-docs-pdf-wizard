@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<record id="estate_tags_form" model="ir.ui.view">
+        <field name="name">estate.tags.form</field>
+        <field name="model">estate.property.tags</field>
+        <field name="arch" type="xml">
+            <form string="Property Tags">
+                <sheet>
+                    <group>
+                        <field name="color" widget="color_picker"/>
+                        <field name="name"/>
+                     </group>   
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="estate_tags_action" model="ir.actions.act_window">
+        <field name="name">Estate Tags</field>
+        <field name="res_model">estate.property.tags</field>
+    </record>
+
+    <menuitem
+        id="estate_tags_menu_root"
+        name="Real Estate"/>
+
+        <menuitem
+        id="settings_menu"
+        name="Settings" parent="estate_menu_root"/>
+    <menuitem
+        id="estate_tags_menu"
+        name="Property Tags" action="estate_tags_action" parent="settings_menu"/>
+</odoo>

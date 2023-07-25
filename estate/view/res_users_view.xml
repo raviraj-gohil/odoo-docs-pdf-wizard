@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+	<record id="inherited_model_view_form" model="ir.ui.view">
+	    <field name="name">res.users.form</field>
+	    <field name="model">res.users</field>
+	    <field name="inherit_id" ref="base.view_users_form"/>
+	    <field name="arch" type="xml">
+	    	<xpath expr="//page[@name='preferences']" position="after">
+	    		<page name="Real Estate Property">
+	    			<field name="property_ids">
+	    				<tree string="Estate" decoration-bf="status=='accepted'" decoration-danger="status=='rejected'" decoration-success="status=='accepted', 'receive'" decoration-muted="status=='sold'">
+			                <field name="name"/>
+			                <field name="property_type_id"/>
+			                <field name="postcode"/>
+			                <field name="tag_ids" widget="many2many_tags" options="{'color_field': 'color'}"/>
+			                <field name="bedrooms"/>
+			                <field name="living_area"/>
+			                <field name="expected_price"/>
+			                <field name="selling_price"/>
+			               <field name="available_from" optional="hide"/>
+			               <field name="status" invisible="1"/>
+			            </tree>
+		            </field>
+		        </page>
+	    	</xpath>
+    	</field>
+	</record>
+
+</odoo>

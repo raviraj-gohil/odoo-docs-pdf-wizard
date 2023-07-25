@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>    
+<odoo>
+    <data>
+        <record id="estate_wizard_form" model="ir.ui.view">
+            <field name="name">estate.wizard.form</field>
+            <field name="model">estate.wizard</field>
+            <field name="arch" type="xml">
+                <form string="Estate Wizard">
+                    <sheet>
+                        <group>
+                            This is Wizard
+                            <field name="old_salesman"/>
+                            <field name="new_salesman"/>
+                        </group>
+                        <footer>
+                            <button name="add_info" type="object" string="Update"/>
+                        </footer>
+                    </sheet>    
+                </form>
+            </field>
+        </record>
+
+    <record id="estate_wizard_action" model="ir.actions.act_window">
+        <field name="name">Update estate records</field>
+        <field name="res_model">estate.wizard</field>
+        <!-- <field name="view_type">form</field> -->
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="estate_wizard_form"/>
+        <field name="target">new</field>
+        <field name="binding_model_id" ref="estate.model_estate_property"/>
+    </record>
+
+<!--         <record id="estate_wizard_action" model="ir.actions.act_window">
+            <field name="name">Update estate records</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">estate.wizard</field>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="estate_wizard_form"/>
+            <field name="target">new</field>
+            <field name="context">{'dialog_size': 'medium'}</field>
+        </record>
+ -->        
+    </data>    
+</odoo>
